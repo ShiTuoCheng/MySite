@@ -23,6 +23,8 @@ export default {
 <style lang="less">
 @import "../src/css/common";
 #app {
+  min-width: 1200px;
+  overflow-x: hidden;
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

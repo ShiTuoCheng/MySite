@@ -2,7 +2,7 @@
   <footer class="footer">
      <div class="wrapper">
        <div class="timing">{{currentTime}}</div>
-       <div class="weatherDiv">{{location}}-{{weatherState}}-{{weatherTemp}}</div>
+       <div class="weatherDiv">{{location}} | {{weatherState}} | {{weatherTemp}}</div>
        <div class="content">
          <span>Powered by </span>
          <img src="../assets/logo.png">

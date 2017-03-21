@@ -5,6 +5,7 @@ import Index from '../pages/index.vue'
 import Developed from '../pages/developed.vue'
 import AboutMe from '../pages/aboutMe.vue'
 import Welcome from '../pages/welcome.vue'
+import Article from '../pages/article.vue'
 Vue.use(Router)
 
 export default new Router({
@@ -18,7 +19,7 @@ export default new Router({
       component: Index
     },{
       path: '/article',
-      component: Index
+      component: Article
     },{
       path: '/post',
       component: Developed

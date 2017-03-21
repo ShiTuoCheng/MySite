@@ -3,7 +3,9 @@
     <div class="wrapper">
       <div class="avatarDiv">
       </div>
-      <span>Welcome to my world!!</span>
+      <span v-on:click="godClick">Welcome to my world!!</span>
+      <input v-show="show" class="userInput" placeholder = 'godName' v-model="name"></input>
+      <input v-show="show" class="confirmButton" type='button' text='Confirm' v-on:click="confirmGod"></input>
       <ul>
        <router-link to="/index" tag="li">主页<div class="selectBar"></div></router-link>
        <router-link to="/article" tag="li">我的文章<div class="selectBar"></div></router-link>
@@ -20,7 +22,10 @@ export default {
   name: 'header',
   data () {
     return {
-      scrolled: false
+      scrolled: false,
+      show: false,
+      name: '',
+      godName: 'Shituocheng'
     }
   },
 
@@ -43,7 +48,16 @@ export default {
 
                 $('header').css('box-shadow','0px 0px 5px 0px #999');
             }
-		}
+		},
+
+    godClick() {
+      this.show =! this.show;
+    },
+
+    confirmGod() {
+
+      (this.name === this.godName) ? alert('you\'ve been in God mode') : alert('name is incorrect');
+    }
   }
 }
 </script>
@@ -65,6 +79,15 @@ header.header{
     margin: 0 auto;
     position: relative;
 
+    input.userInput{
+      border: 1px solid #333;
+      margin-left: 20px;
+    }
+
+    input.confirmButton{
+      width: 30px;
+    }
+
     div.avatarDiv{
 
       width: 70px;
@@ -84,6 +107,7 @@ header.header{
         margin-left: 100px;
         height: 70px;
         line-height: 70px;
+        cursor: pointer;
       }
 
     ul {
