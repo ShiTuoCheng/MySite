@@ -1,11 +1,11 @@
-# y
+# MySite
 
-> y
+> MySite
 
 ## Build Setup
 
 ``` bash
-# install dependencies
+# install dependencies 
 npm install
 
 # serve with hot reload at localhost:8080
