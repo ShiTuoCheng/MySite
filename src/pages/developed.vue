@@ -57,7 +57,7 @@
             },
 
             detailComeOver(index) {
-                $('div.detailPanel').css('top', "90px");
+                $('div.detailPanel').css('top', "90px").css('display', 'inline-block');
                 $('div.screenshot').css('background-image', 'url('+ this.developingItems[index].screenshot +')');
                 $('p.detailTitle').html(this.developingItems[index].name);
                 $('p.detailContent').html(this.developingItems[index].detail);
@@ -141,16 +141,16 @@
              div.detailPanel{
 
                 width: 800px;
-                display:inline-block;
+                display:none;
                 height: 500px;
                 box-shadow: 0 0 5px 0 #999;
                 position: absolute;
                 top:-1200px;
                 right: 0;
-                transition:top 1s;
-                -moz-transition: top 1s; /* Firefox 4 */
-                -webkit-transition: top 1s; /* Safari 和 Chrome */
-                -o-transition: top 1s; /* Opera */
+                transition:all 1s;
+                -moz-transition: all 1s; /* Firefox 4 */
+                -webkit-transition: all 1s; /* Safari 和 Chrome */
+                -o-transition: all 1s; /* Opera */
 
                 p.detailTitle {
                     text-align: center;

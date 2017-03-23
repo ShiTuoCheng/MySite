@@ -34,7 +34,7 @@ export default {
         transform-origin: right;
   }
   .slide-left-enter, .slide-left-leave-active {
-        transform: scale(0,1);
+        transform: scale(1,0);
   }
 }
 </style>

@@ -6,6 +6,7 @@ import Developed from '../pages/developed.vue'
 import AboutMe from '../pages/aboutMe.vue'
 import Welcome from '../pages/welcome.vue'
 import Article from '../pages/article.vue'
+import ArticleDetail from '../pages/articleDetail.vue'
 Vue.use(Router)
 
 export default new Router({
@@ -26,6 +27,9 @@ export default new Router({
     },{
       path: '/aboutMe',
       component: AboutMe
+    },{
+      path: '/articleDetail',
+      component: ArticleDetail
     }
   ]
 })
