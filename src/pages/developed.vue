@@ -37,6 +37,7 @@
         },
 
         methods:{
+
             initProgressBar() {
 
                 let num = this.developingItems.length,

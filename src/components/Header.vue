@@ -3,7 +3,8 @@
     <div class="wrapper">
       <div class="avatarDiv">
       </div>
-      <span v-on:click="godClick">Welcome to my world!!</span>
+      <span class="title" v-on:click="godClick">Welcome to my world!!</span>
+      <span v-cloak class="backTitle" @click="goBack">回到文章列表页面</span>
       <input v-show="show" class="userInput" placeholder = 'godName' v-model="name"></input>
       <input v-show="show" class="confirmButton" type='button' text='Confirm' v-on:click="confirmGod"></input>
       <ul>
@@ -18,6 +19,7 @@
 
 <script>
 import $ from 'jquery'
+import {mapGetters} from 'vuex'
 export default {
   name: 'header',
   data () {
@@ -25,7 +27,8 @@ export default {
       scrolled: false,
       show: false,
       name: '',
-      godName: 'Shituocheng'
+      godName: 'Shituocheng',
+      hasArticleDetail: this.getArticleDetail
     }
   },
 
@@ -35,6 +38,16 @@ export default {
 
   destroyed () {
     window.removeEventListener('scroll', this.handleScroll);
+  },
+
+  computed: {
+    ...mapGetters([
+      'getArticleDetail'
+    ])
+  },
+
+  mounted() {
+    setInterval(this.changeStateByPages, 500);
   },
 
   methods: {
@@ -57,12 +70,34 @@ export default {
     confirmGod() {
 
       (this.name === this.godName) ? alert('you\'ve been in God mode') : alert('name is incorrect');
+    },
+
+    changeStateByPages() {
+      if(this.getArticleDetail){
+        $('header ul').css('position', 'absolute').animate({'top': '-200px'});
+        $('header span.title').css('position', 'absolute').animate({'top': '-200px'});
+        $('header span.backTitle').css('position', 'absolute').animate({'top': '0'});
+        $('header div.avatarDiv').animate({'top':'-200px'});
+      }else{
+        $('header ul').css('position', 'absolute').animate({'top': '0'});
+        $('header span.backTitle').css('position', 'absolute').animate({'top': '-200px'});
+        $('header span.title').css('position', 'absolute').animate({'top': '0'});
+        $('header div.avatarDiv').animate({'top':'0'});
+      }
+    },
+
+    goBack() {
+      this.$router.replace('./article');
     }
   }
 }
 </script>
 
 <style scoped lang="less">
+
+[v-cloak]{
+  display: none;
+}
 
 header.header{
   width: 100%;
@@ -103,12 +138,19 @@ header.header{
       top: 0;
     }
 
-    span{
+    span.title{
         margin-left: 100px;
         height: 70px;
         line-height: 70px;
         cursor: pointer;
-      }
+    }
+
+    span.backTitle{
+        margin-left: 100px;
+        height: 70px;
+        line-height: 70px;
+        cursor: pointer;
+    }
 
     ul {
       position: absolute;

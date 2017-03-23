@@ -9,14 +9,18 @@ import $ from 'jquery'
 
         mounted() {
             this.setFullscreen();
+            this.init();
         },
 
         methods: {
 
             setFullscreen() {
                 $('section.welcome').height($(window).height());
-            }
+            },
 
+            init() {
+                this.$store.dispatch('setArticleDetail', false);
+            }
         }
     }
 </script>

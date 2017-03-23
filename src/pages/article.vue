@@ -31,7 +31,7 @@ export default{
     },
 
     mounted(){
-        
+
     },
 
     watch: {
@@ -56,7 +56,6 @@ export default{
             this.$store.dispatch('saveTitle', this.articleList[index].title);
             this.$store.dispatch('saveDetail', this.articleList[index].content);
             this.$router.replace('/articleDetail');
-            console.log(this.showTitle);
         },
 
         getArticleList() {

@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <v-header></v-header>
-      <transition name="slide-left">
+      <transition name="slide-left" mode="out-in">
           <router-view></router-view>
       </transition>
     <v-footer></v-footer>
@@ -29,12 +29,18 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-  .slide-left-enter-active, .slide-left-leave-active {
+  .slide-left-enter-active{
         transition: transform .5s;
         transform-origin: right;
   }
+
+  .slide-left-leave-active{
+        transition: transform .5s;
+        transform-origin: left;
+  }
+
   .slide-left-enter, .slide-left-leave-active {
-        transform: scale(1,0);
+        transform: scale(0,1);
   }
 }
 </style>

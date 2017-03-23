@@ -7,6 +7,16 @@
     export default {
         components:{
 
+        },
+
+        mounted() {
+            this.init();
+        },
+
+        methods: {
+            init() {
+                this.$store.dispatch('setArticleDetail', false);
+            }
         }
     }
 </script>

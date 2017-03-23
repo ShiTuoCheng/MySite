@@ -18,6 +18,10 @@ export default{
         }
     },
 
+    created() {
+        this.init();
+    },
+
     mounted() {
 
     },
@@ -29,8 +33,19 @@ export default{
         ])
     },
 
-    methods: {
+    beforeDestroy() {
+        this.after();
+    },
 
+    methods: {
+        init() {
+            this.$store.dispatch('setArticleDetail', true);
+            console.log('save');
+        },
+
+        after() {
+            this.$store.dispatch('setArticleDetail', false);
+        }
     }
 }
 </script>
